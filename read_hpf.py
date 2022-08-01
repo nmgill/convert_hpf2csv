@@ -1,8 +1,7 @@
-import pandas
 import glob
 import subprocess
 
-# MATLAB function
+# Python version of the following MATLAB function 
 # function [ ] = plotdata( file )
 # dos(['"C:\Program Files\Delsys, Inc\EMGworks 4.0 RC4\DelsysFileUtil.exe" -nogui -o CSV -i ' file]);
     
@@ -10,20 +9,9 @@ import subprocess
 # plot(data(:,1), data(:,2));
 # end
 
-folder_Path  = r'C:\........' # wherever your .hpf files are stored
-    
 def hpf2csv(fileName):
-    DELSYS = r'C:\Program Files (x86)\Delsys, Inc\Delsys File Utility' # or wherever your program files are saved
+    DELSYS = r'C:\Program Files (x86)\Delsys, Inc\Delsys File Utility'
     cmdline = 'DelsysFileUtil.exe'
     args = ' -nogui -o CSV -i '
     inputStr = 'cmd /C ' + '"' + '"' + cmdline + '"' + args + '"' + fileName + '"' + '"'
     rc = subprocess.run(inputStr, cwd=DELSYS)
-
-file_list = glob.glob(folder_Path + "/*.hpf")
-
-n_count = len(file_list)
-iCount = 1
-for fileName in file_list:
-    print("\nProcessing file: " + str(iCount) + '/' + str(n_count))
-    hpf2csv(fileName)
-    iCount = iCount + 1
