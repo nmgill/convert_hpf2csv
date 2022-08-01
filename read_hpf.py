@@ -10,11 +10,11 @@ import subprocess
 # plot(data(:,1), data(:,2));
 # end
 
-DELSYS = r'C:\Program Files (x86)\Delsys, Inc\Delsys File Utility'
+DELSYS = r'C:\Program Files (x86)\Delsys, Inc\Delsys File Utility' # or wherever your program files are saved
 cmdline = 'DelsysFileUtil.exe'
 args = ' -nogui -o CSV -i '
 
-folder_Path  = r'C:\Users\Niamh Gill\OneDrive - English Institute of Sport\Data Folder\2022 07 27 - HS'
+folder_Path  = r'C:\........' # wherever your .hpf files are stored
 file_list = glob.glob(folder_Path + "/*.hpf")
 
 n_count = len(file_list)
@@ -24,6 +24,3 @@ for fileName in file_list:
     inputStr = 'cmd /C ' + '"' + '"' + cmdline + '"' + args + '"' + fileName + '"' + '"'
     rc = subprocess.run(inputStr, cwd=DELSYS)
     iCount = iCount + 1
-#     inputStr = 'cmd /C ' + '"' + '"' + DELSYS + cmdline + '"' + args + '"' + fileName + '"' + '"'
-#     print("\nProcessing file: " + fileName)
-#     rc = subprocess.run(inputStr, cwd=DELSYS) # run `cmdline` in `dir`
