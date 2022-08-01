@@ -3,7 +3,7 @@ import glob
 import subprocess
 from read_hpf import hpf2csv
 
-folder_Path  = r'C:\Users\Niamh Gill\OneDrive - English Institute of Sport\Data Folder\2022 07 27 - HS'
+folder_Path  = r'..................' # folder where data is stored
 
 file_list = glob.glob(folder_Path + "/*.hpf")
 
